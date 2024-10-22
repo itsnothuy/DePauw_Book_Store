@@ -35,12 +35,12 @@ const Navbar = () => {
         {link: "Home", path: "/"},
         {link: "About", path: "/about"},
         {link: "Shop", path: "/shop"},
-        {link: "Sell Your Book", path: "/admin/dashboard"},
+        {link: "Cart", path: "/cart"},
         {link: "Blog", path: "/blog"},
     ];
 
     return (
-      <header className='w-full bg-trasparent fixed top-0 left-0 right-0 transition-all ease-in duration-300'> {/* Add sticky class if scrolled */}
+      <header className='w-full bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300'> {/* Add sticky class if scrolled */}
         <nav className={`py-4 lg:px-24 px-4 ${isSticky ? "sticky top-0 left-0 right-0 bg-blue-300" : ""}`}>
             <div className='flex justify-between items-center text-base gap-8'>
                 {/* logo */}
@@ -76,7 +76,7 @@ const Navbar = () => {
             </div>
 
             {/* navitems for sm devices */}
-            <div className={`space-y-4 px-4 mt-12 py-7 bg-blue-700 ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
+            <div className={`space-y-4 px-4 mt-16 py-7 bg-blue-700 ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
                 {
                     navItems.map(({ link, path }) => (
                         <Link key={path} to= {path} className='block text-base text-white uppercase cursor-pointer hover:text-blue-700'>{link}</Link>

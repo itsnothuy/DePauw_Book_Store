@@ -8,6 +8,8 @@ import Shop from "../shop/Shop"
 import About from "../components/About"
 import Blog from "../components/Blog"
 import Signup from "../components/Signup";
+import SingleBook from "../components/SingleBook";
+import CartPage from "../cart/CartPage";
 
   const router = createBrowserRouter([
   {
@@ -33,6 +35,15 @@ import Signup from "../components/Signup";
         {
             path: "sign-up",
             element: <Signup/>,
+        },
+        {
+            path:"/book/:id",
+            element: <SingleBook />,
+            loader: ({params}) => fetch(`http://localhost:3000/book/${params.id}`)
+        },
+        {
+            path:"/cart",
+            element: <CartPage />
         }
     ]
   },
