@@ -33,10 +33,6 @@ import CartPage from "../cart/CartPage";
             element: <Blog/>,
         },
         {
-            path: "sign-up",
-            element: <Signup/>,
-        },
-        {
             path:"/book/:id",
             element: <SingleBook />,
             loader: ({params}) => fetch(`http://localhost:3000/book/${params.id}`)
@@ -47,6 +43,10 @@ import CartPage from "../cart/CartPage";
         }
     ]
   },
+  {
+    path: "sign-up",
+    element: <Signup/>,
+},
 ]);
 
 export default router 
