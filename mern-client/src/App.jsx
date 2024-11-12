@@ -13,7 +13,7 @@ function App() {
       {/* Add a toggle button for showing/hiding the cart */}
       <div className="cart-toggle">
         <button onClick={() => setShowCart(!showCart)} className='cart-button'>
-          {showCart ? 'Hide Cart' : 'Show Cart'}
+          {/* {showCart ? 'Hide Cart' : 'Show Cart'} */}
         </button>
       </div>
 

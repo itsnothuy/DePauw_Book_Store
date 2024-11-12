@@ -131,6 +131,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Card } from "flowbite-react";
 import { addItem } from '../cart/cartSlice'; // Import addItem action
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
   const [books, setBooks] = useState([]);
@@ -156,7 +157,7 @@ const Shop = () => {
     const bookItem = {
       name: book.bookTitle,  // Cart expects 'name' as key for book title
       image: book.imageURL,
-      cost: `$${book.price || 20.00}`,  // Assuming price is available, otherwise use default
+      cost: `$${book.price || 12.99}`,  // Assuming price is available, otherwise use default
     };
     dispatch(addItem(bookItem)); // Dispatch addItem action with book object
   };
@@ -187,15 +188,17 @@ const Shop = () => {
         {
           filteredBooks.map(book => (
             <Card key={book._id}>
-              <img src={book.imageURL} alt={book.bookTitle} className='h-96' />
+              <Link to={`/book/${book._id}`}> {/* Wrap image in Link */}
+                <img src={book.imageURL} alt={book.bookTitle} className='h-96' />
+              </Link>
               <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 {book.bookTitle}
               </h5>
               <p className="font-normal text-gray-700 dark:text-gray-400 text-sm">
                 {book.bookDescription}
               </p>
-              <p className="font-normal text-gray-900 dark:text-gray-200">
-                Price: ${book.price || 20.00}  {/* Display price if available, else default */}
+              <p className="font-normal text-gray-900 ">
+                Price: ${book.price || 12.99}  {/* Display price if available, else default */}
               </p>
               <button
                 onClick={() => handleAddToCart(book)}
