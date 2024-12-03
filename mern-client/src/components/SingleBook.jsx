@@ -101,9 +101,10 @@ const SingleBook = () => {
 
   const handleAddToCart = () => {
     const bookItem = {
+      bookId: _id,
       name: bookTitle,
       image: imageURL,
-      cost: `₹${price || 12.99}`,
+      cost: `$${price || 12.99}`,
       quantity,
     };
     dispatch(addItem(bookItem));
@@ -140,7 +141,7 @@ const SingleBook = () => {
       
       {/* Place the Review component at the bottom */}
       <div className="w-full mt-12">
-        <Review />
+        <Review bookId={_id}/>
       </div>
     </div>
   );
