@@ -10,43 +10,49 @@ import Blog from "../components/Blog"
 import Signup from "../components/Signup";
 import SingleBook from "../components/SingleBook";
 import CartPage from "../cart/CartPage";
+import Signin from "../components/Signin";
 
-  const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-    children: [
+  
+const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <App />,
+      children: [
         {
-            path: '/',
-            element:<Home/>,
-        }, 
-        {
-            path: "/shop",
-            element: <Shop/>,
+          path: '/',
+          element: <Home />,
         },
         {
-            path: "/about",
-            element: <About/>,
+          path: "/shop",
+          element: <Shop />,
         },
         {
-            path: "/blog",
-            element: <Blog/>,
+          path: "/about",
+          element: <About />,
         },
         {
-            path:"/book/:id",
-            element: <SingleBook />,
-            loader: ({params}) => fetch(`http://localhost:3000/book/${params.id}`)
+          path: "/blog",
+          element: <Blog />,
         },
         {
-            path:"/cart",
-            element: <CartPage />
-        }
-    ]
-  },
-  {
-    path: "sign-up",
-    element: <Signup/>,
-},
-]);
-
-export default router 
+          path: "/book/:id",
+          element: <SingleBook />,
+          loader: ({ params }) => fetch(`http://localhost:3000/book/${params.id}`),
+        },
+        {
+          path: "/cart",
+          element: <CartPage />,
+        },
+      ],
+    },
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
+    {
+        path: "/login",
+        element: <Signin />,
+      },
+  ]);
+  
+  export default router;

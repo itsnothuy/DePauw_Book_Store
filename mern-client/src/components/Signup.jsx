@@ -73,25 +73,29 @@ const Signup = () => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
-    const handleSignUp = (event) => {
+    const handleSignUp = async (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
-        setError('');
-        setLoading(true);
-        createUser(email, password)
-            .then((userCredential) => {
-                setLoading(false);
-                alert('Sign up successfully');
-                navigate(from, { replace: true });
-            })
-            .catch((error) => {
-                setLoading(false);
-                setError(error.message);
-            });
-    };
+      
+        try {
+          await createUser(email, password);
+          alert('Sign-up successful!');
+          navigate('/'); // Redirect to home page
+        } catch (error) {
+          console.error('Sign-up error:', error.message);
+          if (error.code === 'auth/email-already-in-use') {
+            alert('This email is already in use. Please try a different one.');
+          } else if (error.code === 'auth/invalid-email') {
+            alert('Invalid email format. Please try again.');
+          } else if (error.code === 'auth/weak-password') {
+            alert('Password must be at least 6 characters long.');
+          } else {
+            alert('An unknown error occurred. Please try again.');
+          }
+        }
+      };
 
     return (
         <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
