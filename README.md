@@ -11,7 +11,7 @@ The Book Shopping Application is a web-based platform created for DePauw student
 ## Key Features
 
 1. **Book Browsing and Filtering:**  
-   - Browse a large selection of books, each with a thumbnail, title, price, and “Add to Cart” button.  
+   - Browse a large selection of books, each with a thumbnail, title, price, and "Add to Cart" button.  
    - Filter books by category (e.g., fiction, non-fiction, science) and potentially by ratings, price range, and availability.
 
 2. **Shopping Cart Functionality:**  
@@ -64,3 +64,90 @@ The Book Shopping Application is a web-based platform created for DePauw student
    ```bash
    git clone https://github.com/itsnothuy/DePauw_Book_Store.git
    cd DePauw_Book_Store
+   ```
+
+2. **Install Dependencies:**
+
+   **For the Backend:**
+   ```bash
+   cd backend
+   npm install
+   ```
+
+   **For the Frontend:**
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+3. **Environment Variables:**
+   - Create a `.env` file in `/backend` with required environment variables (e.g., DB credentials, JWT secret).  
+   - For Firebase, if applicable, add Firebase configuration in the frontend (e.g., `.env` or config files).
+
+### Running the Application
+
+1. **Start the Backend Server:**
+   ```bash
+   cd backend
+   npm start
+   ```
+   This should start the Express.js server on a specified port (e.g., `http://localhost:5000`).
+
+2. **Start the Frontend:**
+   ```bash
+   cd frontend
+   npm start
+   ```
+   The React app will typically run at `http://localhost:3000`.
+
+3. **Access the Application:**  
+   Open your browser and go to `http://localhost:3000`. You should see the landing page with navigation to "Books", "Cart", "Login", etc.
+
+## Demonstration Checkpoints
+
+1. **Checkpoint 1 (Oct 1):**
+   - Landing page, product listing page, and login page are functional.
+   - Basic navigation works.
+   - JWT authentication integrated (accessing review features requires login).
+
+2. **Checkpoint 2 (Oct 22):**
+   - Product listing shows categorized books.
+
+3. **Checkpoint 3 (Nov 12):**
+   - Fully implemented shopping cart (add/remove/adjust quantities).
+   - Reviews system operational (create, read, update, delete reviews for purchased books).
+
+4. **Checkpoint 4 (Dec 3):**
+   - Error handling for invalid input, duplicate reviews, and incomplete forms.
+   - Comprehensive demonstration of all features.
+
+## Future Enhancements
+
+- **Mobile Apps:** Create native apps for Android and iOS.  
+- **Personalized Recommendations:** Implement machine learning-based recommendation systems.  
+- **Additional Products:** Sell and review e-books, audiobooks, and related accessories.
+
+## Ethical Considerations
+
+### Data Privacy & Security:
+- Encrypt user passwords (e.g., using `bcrypt`).  
+- Use HTTPS for secure data transmission.  
+- Validate JWT tokens and enforce session expiration.
+
+### Fair Reviews:
+- Only allow verified buyers to review.  
+- Display both positive and negative reviews for balanced feedback.
+
+## Lessons Learned & Acknowledgements
+
+- Adapting technology choices (e.g., switching from JWT to Firebase Authentication or MySQL to Firestore) improved the final product’s scalability and security.  
+- Employing Redux simplified global state management for the shopping cart and improved maintainability.  
+- User feedback guided UI and UX enhancements, emphasizing the importance of user-centered design and continuous improvement.
+
+## License
+
+This project is for educational purposes within DePauw University’s curriculum. Refer to the repository’s license file for more details.
+
+---
+
+Thank you for visiting this repository! If you have questions, suggestions, or feedback, please open an issue or submit a pull request. Your contributions help improve this project!
